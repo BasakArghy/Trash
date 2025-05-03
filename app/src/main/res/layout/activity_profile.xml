@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:id="@+id/layoutDrawer"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomNavigationView"
+        tools:context=".drawer">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:id="@+id/rela">
+            <include layout="@layout/appbar"
+                android:id="@+id/aa"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/aa"
+                >
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/home_back"
+
+                    android:padding="16dp"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal">
+
+                        <TextView
+                            android:id="@+id/title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Profile"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            android:textColor="#333333"
+                            android:gravity="center"
+                            android:layout_marginBottom="16dp"/>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:elevation="6dp"
+                            android:backgroundTint="#FFFFFF"
+                            app:cardCornerRadius="16dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="#A3D0F3"
+                                android:orientation="vertical"
+
+                                android:padding="20dp">
+
+                                <!-- Profile Photo -->
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginBottom="8dp"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:id="@+id/photoValue"
+                                        android:layout_width="110dp"
+                                        android:layout_height="110dp"
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_marginBottom="4dp"
+                                        android:background="@drawable/cor"
+                                        android:clipToOutline="true"
+                                        android:padding="2dp"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/baseline_person_24" /> <!-- enables image to respect rounded corners -->
+
+                                </LinearLayout>
+
+
+                                <!-- Permanent Fields: Name -->
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Full Name"
+                                    android:textColor="#555555"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/nameValue"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="12dp"
+                                    android:text="Name Here"
+                                    android:textColor="#000000"
+                                    android:textSize="16sp" />
+
+                                <!-- Permanent Fields: Email -->
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Email"
+                                    android:textColor="#555555"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/emailValue"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="12dp"
+                                    android:text="email@example.com"
+                                    android:textColor="#000000"
+                                    android:textSize="16sp" />
+
+                                <LinearLayout
+                                    android:id="@+id/optional"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:visibility="gone">
+
+
+                                    <!-- Optional Fields -->
+
+                                    <TextView
+                                        android:id="@+id/applicationIdLabel"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Permit ID"
+                                        android:textColor="#555555"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/applicationIdValue"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="12dp"
+                                        android:text="Not Set"
+                                        android:textColor="#000000"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/birthdateLabel"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Birth Date"
+                                        android:textColor="#555555"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/birthdateValue"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="12dp"
+                                        android:text="DD/MM/YYYY"
+                                        android:textColor="#000000"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/phoneLabel"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Phone Number"
+                                        android:textColor="#555555"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/phoneValue"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="12dp"
+                                        android:text="+8801XXXXXXX"
+                                        android:textColor="#000000"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/addressLabel"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Address"
+                                        android:textColor="#555555"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/addressValue"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="12dp"
+                                        android:text="Street Address, Ward, City, Zip Code"
+                                        android:textColor="#000000"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/nidLabel"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="National ID"
+                                        android:textColor="#555555"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/nidValue"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="12dp"
+                                        android:text="NID Number"
+                                        android:textColor="#000000"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/experienceLabel"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Experiences"
+                                        android:textColor="#555555"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/experienceValue"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="12dp"
+                                        android:text="Experience Details"
+                                        android:textColor="#000000"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                </ScrollView>
+
+
+            </LinearLayout>
+        </RelativeLayout>
+        <com.google.android.material.navigation.NavigationView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:headerLayout="@layout/header"
+            app:menu="@menu/drawer_menu"
+            android:id="@+id/naviDrawer"
+            android:layout_gravity="start" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bottomNav"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/bottom_nav_menu"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

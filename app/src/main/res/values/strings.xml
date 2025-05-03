@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Recyclable Trash Classification App</string>
+    <string name="open">Open Navigation Drawer</string>
+    <string name="close">Close Navigation Drawer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="select_month">Please select a month</string>
+    <string name="select_day">Please select a day</string>
+    <string name="select_year">Please select a year</string>
+
+
+    <string name="help_title">Safety Tips from Harmful Waste</string>
+
+    <string name="q1">❓ Is it safe to throw batteries into regular trash bins?</string>
+    <string name="a1">✅ No. Batteries contain toxic chemicals and can leak or explode. Always dispose of them at a certified battery recycling or e-waste center.</string>
+
+    <string name="q2">❓ What should I do if I break a fluorescent bulb (tube light)?</string>
+    <string name="a2">✅ Ventilate the room, wear gloves, and use stiff paper to pick up pieces. Do not use a vacuum. Place broken parts in a sealed container and take to a hazardous waste center.</string>
+
+    <string name="q3">❓ Can I burn plastic or rubber waste to get rid of it?</string>
+    <string name="a3">✅ No. Burning plastics or rubber releases harmful fumes like dioxins and heavy metals, which are dangerous to health and the environment.</string>
+
+    <string name="q4">❓ How do I protect myself from sharp waste like glass or metal?</string>
+    <string name="a4">✅ Wear gloves, wrap sharp items in cardboard or newspaper, label them as &quot;SHARP&quot;, and dispose of them in marked bins.</string>
+
+    <string name="q5">❓ What are the dangers of throwing chemicals in drains or bins?</string>
+    <string name="a5">✅ Chemicals like paint or oils can pollute soil and water, or even cause fires. Take them to your local hazardous waste disposal facility.</string>
+
+    <string name="q6">❓ Can expired medicines go into the toilet or trash?</string>
+    <string name="a6">✅ No. Flushing medicines pollutes water systems. Use pharmacy take-back programs or special drug disposal bins.</string>
+
+    <string name="q7">❓ What safety gear should I use while handling trash?</string>
+    <string name="a7">✅ Use gloves, masks, and sometimes goggles depending on the waste. Wash hands after handling trash and avoid touching your face.</string>
+</resources>

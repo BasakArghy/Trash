@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.RecyclableTrashClassificationApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:statusBarColor">#2F2D33</item>
+        <item name="android:navigationBarColor">#2F2D33</item>
+
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+
+    </style>
+    <color name="bottomNav">#2F2D33</color>
+    <color name="header">#1F6297</color>
+    <color name="headerText">#FAFAFA</color>
+    <color name="sada">#090707</color>
+
+</resources>

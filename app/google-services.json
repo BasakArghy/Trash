@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "360590146250",
+    "project_id": "recyclabletrash-49901",
+    "storage_bucket": "recyclabletrash-49901.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:360590146250:android:ef5eaecae6cba93c379233",
+        "android_client_info": {
+          "package_name": "com.example.recyclabletrashclassificationapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8uBH-BRh0IpGMtV3jkgsKDqBgDdRXuVE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

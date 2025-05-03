@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="purple">#8692f7</color>
+    <color name="colorAccent">#F9C74F</color>
+    <color name="bottomNav">#230870</color>
+
+    <color name="header">#A3D0F3</color>
+    <color name="headerText">#0B1720</color>
+    <color name="sada">#FFFFFFFF</color>
+    <color name="historyItem">#E6EAF6</color>
+    <color name="formBack">#A3D0F3</color>
+</resources>

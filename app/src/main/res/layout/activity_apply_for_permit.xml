@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    tools:context=".Settings">
+    <include layout="@layout/appbar"
+        android:id="@+id/tb"/>
+<ScrollView
+    android:layout_below="@id/tb"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@drawable/home_back"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Heading -->
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recyclable Trash Collecting Permit Application"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
+
+      <!--  <TextView
+            android:id="@+id/subTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fill the form below accurately"
+            android:textStyle="italic"
+            android:textSize="14sp"
+            android:textColor="#777777"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />-->
+
+        <!-- Form Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/formCard"
+            android:visibility="visible"
+            cardview:cardCornerRadius="16dp"
+            cardview:cardElevation="8dp"
+            android:layout_margin="8dp"
+            android:backgroundTint="#FFFFFF">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#A3D0F3"
+                android:padding="20dp">
+
+                <!-- Section: Name -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Full Name"
+                    android:textStyle="bold"
+                    android:textColor="#555555"
+                    android:layout_marginTop="8dp"/>
+
+                <TextView
+                    android:id="@+id/Name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:backgroundTint="#CCCCCC"
+                    android:padding="10dp"/>
+
+                <!-- Section: Birth Date -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Birth Date*"
+                    android:textStyle="bold"
+                    android:textColor="#555555"
+                    android:layout_marginTop="16dp"/>
+
+                <EditText
+                    android:id="@+id/birthdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="DD/MM/YYYY"
+                    android:backgroundTint="#CCCCCC"
+                    android:padding="10dp"
+
+                    android:inputType="date"
+                    />
+
+
+                <!-- Section: Phone -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phone Number*"
+                    android:textStyle="bold"
+                    android:textColor="#555555"
+                    android:layout_marginTop="16dp"/>
+
+                <EditText
+                    android:id="@+id/phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="+8801********"
+                    android:inputType="phone"
+                    android:backgroundTint="#CCCCCC"
+                    android:padding="10dp"/>
+
+                <!-- Section: Email -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:textStyle="bold"
+                    android:textColor="#555555"
+                    android:layout_marginTop="16dp"/>
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:backgroundTint="#CCCCCC"
+                    android:padding="10dp"/>
+
+                <!-- Section: Address -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address*"
+                    android:textStyle="bold"
+                    android:textColor="#555555"
+                    android:layout_marginTop="16dp"/>
+
+                <EditText
+                    android:id="@+id/streetAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Street Address"
+                    android:backgroundTint="#CCCCCC"
+                    android:padding="10dp"/>
+
+                <EditText
+                    android:id="@+id/ward"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ward No"
+                    android:inputType="number"
+                    android:backgroundTint="#CCCCCC"
+                    android:padding="10dp"/>
+
+                <EditText
+                    android:id="@+id/city"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="City"
+                    android:backgroundTint="#CCCCCC"
+                    android:padding="10dp"/>
+
+                <EditText
+                    android:id="@+id/zip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Postal / Zip Code"
+                    android:inputType="number"
+                    android:backgroundTint="#CCCCCC"
+                    android:padding="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="National ID Number*"
+                    android:textStyle="bold"
+                    android:textColor="#555555"
+                    android:layout_marginTop="16dp"/>
+
+                <EditText
+                    android:id="@+id/idNum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="ID Number"
+                    android:inputType="number"
+                    android:backgroundTint="#CCCCCC"
+                    android:padding="10dp" />
+                <!-- Section: Photo Upload -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Upload Photo*"
+                    android:textStyle="bold"
+                    android:textColor="#555555"
+                    android:layout_marginTop="16dp"/>
+
+                <Button
+                    android:id="@+id/uploadResumeBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Upload Your Photo"
+                    android:backgroundTint="#6200EE"
+                    android:textColor="#FFFFFF"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"/>
+
+                <!-- Section: Experiences -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Experiences"
+                    android:textStyle="bold"
+                    android:textColor="#555555"
+                    android:layout_marginTop="16dp"/>
+
+                <EditText
+                    android:id="@+id/certifications"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="List your experiences"
+                    android:backgroundTint="#CCCCCC"
+                    android:padding="10dp"/>
+
+                <!-- Submit Button -->
+                <Button
+                    android:id="@+id/submitApplicationBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Submit Application"
+                    android:background="@drawable/blue_gradient_button"
+                    android:textColor="@android:color/white"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="8dp"
+                    android:padding="12dp"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/proccessTxt"
+            android:text="Your application is processing"
+            android:visibility="gone"
+            android:paddingTop="100dp"
+            android:textSize="20dp"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/permitTxt"
+            android:text="You already have Permit"
+            android:visibility="gone"
+            android:paddingTop="100dp"
+            android:textSize="20dp"
+            android:gravity="center"/>
+
+    </LinearLayout>
+</ScrollView>
+
+</RelativeLayout>
+

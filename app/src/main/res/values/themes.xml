@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.RecyclableTrashClassificationApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<!--        <item name="android:windowBackground">#1D61D6</item>-->
+       <item name="android:statusBarColor">#230870</item>
+        <item name="android:navigationBarColor">#230870</item>
+
+
+    </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here -->
+        <item name="android:statusBarColor">#222224</item>
+        <item name="android:navigationBarColor">#222224</item>
+        <item name="android:windowBackground">#E3DDDD</item>
+    </style>
+
+    <style name="Theme.RecyclableTrashClassificationApp" parent="Base.Theme.RecyclableTrashClassificationApp" />
+</resources>
