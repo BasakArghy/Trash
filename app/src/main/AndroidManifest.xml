@@ -17,6 +17,20 @@
         android:theme="@style/Theme.RecyclableTrashClassificationApp"
         tools:targetApi="31">
         <activity
+            android:name=".DealerFromView"
+            android:exported="false" />
+        <activity
+            android:name=".DealerApplicationsView"
+            android:exported="false" />
+        <activity
+            android:name=".AdminPanel"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCz360B1bCgBy5Vvb_BeAqZht6ZbWGwquA" />
+
+        <activity
             android:name=".ApplyAsDealer"
             android:exported="false" />
         <activity

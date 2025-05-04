@@ -153,12 +153,17 @@ public class History extends AppCompatActivity {
                     startActivity(isetti);
                 }
                 else if (item.getItemId()==R.id.admin){
-                    Intent isetti = new Intent(History.this,Administration.class);
+                    Intent isetti = new Intent(History.this,AdminPanel.class);
                     startActivity(isetti);
                 }
                 else if (item.getItemId()==R.id.apply){
                     Intent isetti = new Intent(History.this,ApplyForPermit.class);
                     startActivity(isetti);
+                }
+                else if (item.getItemId()==R.id.dealer) {
+
+                    Intent idealer = new Intent(History.this,ApplyAsDealer.class);
+                    startActivity(idealer);
                 }
                 else if(item.getItemId()==R.id.alogOut) {
                     FirebaseAuth.getInstance().signOut();

@@ -39,7 +39,7 @@ public class Profile extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseUser currentUser;
 
-    private TextView nameValue, emailValue, applicationIdValue, birthdateValue, phoneValue, addressValue, nidValue, experienceValue;
+    private TextView nameValue, emailValue, applicationIdValue, birthdateValue, phoneValue, addressValue, nidValue, experienceValue,addressname;
     private LinearLayout optionalSection;
     private ImageView photoValue;
 
@@ -63,6 +63,7 @@ public class Profile extends AppCompatActivity {
         experienceValue = findViewById(R.id.experienceValue);
 
         photoValue = findViewById(R.id.photoValue);
+        addressname=findViewById(R.id.addressLabel);
 
 
 
@@ -123,6 +124,49 @@ public class Profile extends AppCompatActivity {
                                 Toast.makeText(Profile.this, "Failed to read data: " + error.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         });
+
+
+
+                        }
+                        //dealer
+                        else if(userModel.getUserProfile().equals("5")){
+                            reff=FirebaseDatabase.getInstance().getReference("DealerProfiles");
+                            optional.setVisibility(View.VISIBLE);
+                            reff.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                                        String uid = dataSnapshot.getKey();
+                                        if (uid.equals(uidd)) {
+                                            DealerProfileModel profile=dataSnapshot.getValue(DealerProfileModel.class);
+                                            applicationIdValue.setText(profile.getId());
+                                            birthdateValue.setText(profile.getBirthdate());
+                                            phoneValue.setText(profile.getPhone());
+                                            addressname.setText("Location");
+                                            String fullAddress = "Lat: "+profile.getLat() +"\nLng: "+profile.getLan();
+                                            addressValue.setText(fullAddress);
+                                            nidValue.setText(profile.getNid());
+                                            experienceValue.setText(profile.getExperiences());
+                                            if (profile.getPhotoUrl() != null && !profile.getPhotoUrl().isEmpty()) {
+                                                Glide.with(Profile.this)
+                                                        .load(profile.getPhotoUrl())
+                                                        .placeholder(R.drawable.baseline_person_24)
+                                                        .apply(RequestOptions.bitmapTransform(new RoundedCorners(16)))// fallback placeholder
+                                                        .into(photoValue);
+                                            } else {
+                                                photoValue.setImageResource(R.drawable.baseline_person_24);
+                                            }
+                                        }
+
+
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError error) {
+                                    Toast.makeText(Profile.this, "Failed to read data: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
 
 
 
@@ -230,12 +274,17 @@ public class Profile extends AppCompatActivity {
                     startActivity(isetti);
                 }
                 else if (item.getItemId()==R.id.admin){
-                    Intent isetti = new Intent(Profile.this,Administration.class);
+                    Intent isetti = new Intent(Profile.this, AdminPanel.class);
                     startActivity(isetti);
                 }
                 else if (item.getItemId()==R.id.apply){
                     Intent isetti = new Intent(Profile.this,ApplyForPermit.class);
                     startActivity(isetti);
+                }
+                else if (item.getItemId()==R.id.dealer) {
+
+                    Intent idealer = new Intent(Profile.this,ApplyAsDealer.class);
+                    startActivity(idealer);
                 }
                 else if(item.getItemId()==R.id.alogOut) {
                     FirebaseAuth.getInstance().signOut();

@@ -6,9 +6,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Activity;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -21,15 +20,15 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Administration extends AppCompatActivity {
+public class DealerApplicationsView extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_administration);
-
+        setContentView(R.layout.activity_dealer_applications_view);
 
         //Toolbar
+
         Toolbar toolbar = findViewById(R.id.tb);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -55,17 +54,17 @@ public class Administration extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        List<ApplicationFormModel> list = new ArrayList<>();
-        ApplicationFormAdapter adapter = new ApplicationFormAdapter(this,Administration.this, list);
+        List<DealerApplyFormModel> list = new ArrayList<>();
+        DealerFormAdapter adapter = new DealerFormAdapter(this,DealerApplicationsView.this, list);
         recyclerView.setAdapter(adapter);
 
 // Now fetch data from Firebase and update list
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Applications");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("DealerApplications");
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    ApplicationFormModel applicationFormModel = dataSnapshot.getValue(ApplicationFormModel.class);
+                    DealerApplyFormModel applicationFormModel = dataSnapshot.getValue(DealerApplyFormModel.class);
                     list.add(applicationFormModel);
                 }
                 adapter.notifyDataSetChanged();
@@ -73,7 +72,7 @@ public class Administration extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(Administration.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(DealerApplicationsView.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 

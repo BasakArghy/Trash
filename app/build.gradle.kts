@@ -56,7 +56,7 @@ dependencies {
 
 
     implementation ("com.github.yalantis:ucrop:2.2.10")
-
+    implementation("com.google.android.gms:play-services-maps:18.2.0")
 
 
 

@@ -206,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(isetti);
                 }
                 else if (item.getItemId()==R.id.admin){
-                    Intent isetti = new Intent(MainActivity.this,Administration.class);
+                    Intent isetti = new Intent(MainActivity.this,AdminPanel.class);
                     startActivity(isetti);
                 }
                 else if (item.getItemId()==R.id.apply){
@@ -303,7 +303,7 @@ public class MainActivity extends AppCompatActivity {
                     maxPos = i;
                 }
             }
-            String[] classes = {"Newspaper","CardBoard","Bottle Cap","Plastic Bottle","Polythene","Glass","Aluminium Can","Clothes","Leather Product","Leather Shoe"};
+            String[] classes = {"Plastic Bottles","Brown Glasses","Cans","CardBoard","Clothes","Green Glasses","Leather Products","Leather Shoe","Newspaper","Polythene","White Glass","Non Recyclable"};
            if(confidences[maxPos]>.9)
            { result.setText(classes[maxPos]);}
            else{
