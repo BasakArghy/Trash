@@ -17,6 +17,9 @@
         android:theme="@style/Theme.RecyclableTrashClassificationApp"
         tools:targetApi="31">
         <activity
+            android:name=".ApplyAsDealer"
+            android:exported="false" />
+        <activity
             android:name=".ChangeProfilePic"
             android:exported="false" />
         <activity
@@ -25,7 +28,6 @@
         <activity
             android:name=".EditImageActivity"
             android:exported="false" />
-
         <activity
             android:name=".FormView"
             android:exported="false" />

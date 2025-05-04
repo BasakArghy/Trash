@@ -196,6 +196,11 @@ public class MainActivity extends AppCompatActivity {
                     Intent ihistory = new Intent(MainActivity.this,History.class);
                     startActivity(ihistory);
                 }
+                else if (item.getItemId()==R.id.dealer) {
+
+                    Intent idealer = new Intent(MainActivity.this,ApplyAsDealer.class);
+                    startActivity(idealer);
+                }
                 else if (item.getItemId()==R.id.Settings){
                     Intent isetti = new Intent(MainActivity.this,Settings.class);
                     startActivity(isetti);
@@ -298,8 +303,12 @@ public class MainActivity extends AppCompatActivity {
                     maxPos = i;
                 }
             }
-            String[] classes = {"Paper.R", "Plastics.R", "Glass.R", "Metal.R", "Electronics.R", "Clothes.R", "Shoe.R", "Paper.N", "Plastics.N", "Glass.N", "Metals.N", "Food.N", "Hazardous.N", "Battery.N", "Shoe.N"};
-            result.setText(classes[maxPos]);
+            String[] classes = {"Newspaper","CardBoard","Bottle Cap","Plastic Bottle","Polythene","Glass","Aluminium Can","Clothes","Leather Product","Leather Shoe"};
+           if(confidences[maxPos]>.9)
+           { result.setText(classes[maxPos]);}
+           else{
+               result.setText("Non Recyclable");
+           }
 
             ans = classes[maxPos];
 

@@ -30,6 +30,12 @@
         app:showAsAction="always"
        />
     <item
+        android:id="@+id/dealer"
+        android:title="Apply as Dealer"
+        android:icon="@drawable/baseline_shop_24"
+        app:showAsAction="always"
+        />
+    <item
         android:id="@+id/alogOut"
         android:title="Logout"
         android:icon="@drawable/logout_image"
