@@ -52,17 +52,14 @@ public class AdminPanel extends AppCompatActivity {
         // Button click listeners
     /*
 
-        findViewById(R.id.option_dealer_profiles).setOnClickListener(v ->
-                startActivity(new Intent(this, DealerProfilesActivity.class))
-        );
-
-      
-
-        findViewById(R.id.option_collector_profiles).setOnClickListener(v ->
+     findViewById(R.id.option_collector_profiles).setOnClickListener(v ->
                 startActivity(new Intent(this, CollectorProfilesActivity.class))
         );*/
         findViewById(R.id.option_dealer_applications).setOnClickListener(v ->
                 startActivity(new Intent(this, DealerApplicationsView.class))
+        );
+        findViewById(R.id.option_dealer_profiles).setOnClickListener(v ->
+                startActivity(new Intent(this, DealerProfilesActivity.class))
         );
         findViewById(R.id.option_collector_applications).setOnClickListener(v ->
                 startActivity(new Intent(this, Administration.class))
