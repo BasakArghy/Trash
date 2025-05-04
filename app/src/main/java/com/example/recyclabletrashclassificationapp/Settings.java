@@ -172,9 +172,31 @@ public class Settings extends AppCompatActivity {
                             String uid = FirebaseAuth.getInstance().getUid();
                             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("user");
                             databaseReference.child(uid).child("userName").setValue(newName);
+                            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                                        String uidd = dataSnapshot.getKey();
+                                        if (uidd.equals(uid)) {
+                                            UserModel userModel = dataSnapshot.getValue(UserModel.class);
+                                            if(userModel.getUserProfile().equals("2")) {
 
-                            DatabaseReference databaseReference2 = FirebaseDatabase.getInstance().getReference("Profiles");
-                            databaseReference2.child(uid).child("name").setValue(newName);
+                                                DatabaseReference databaseReference2 = FirebaseDatabase.getInstance().getReference("Profiles");
+                                                databaseReference2.child(uid).child("name").setValue(newName);
+                                            }
+                                            if(userModel.getUserProfile().equals("4")) {
+
+                                                DatabaseReference databaseReference2 = FirebaseDatabase.getInstance().getReference("DealerProfiles");
+                                                databaseReference2.child(uid).child("name").setValue(newName);
+                                            }
+                                        }
+                                    }
+                                }
+                                @Override
+                                public void onCancelled(DatabaseError error) {
+                                    Toast.makeText(Settings.this, "Failed to read data: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                        });
                         }
 
                     } else {
@@ -210,7 +232,7 @@ public class Settings extends AppCompatActivity {
                 .setMessage("Are you sure you want to delete your account? This action cannot be undone.")
                 .setPositiveButton("Delete", (dialog, which) -> {
                     String uid=FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
-                    FirebaseStorage.getInstance("gs://chat-55084.appspot.com").getReference("Applications").child(uid).delete();
+
 
 
                     DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference("Applications").child(uid);
@@ -232,10 +254,12 @@ public class Settings extends AppCompatActivity {
                             })
                             .addOnFailureListener(e -> Log.e("Firebase", "Failed to list files in profile/" + uid, e));
 
-
+                    FirebaseStorage.getInstance("gs://chat-55084.appspot.com").getReference("Applications").child(uid).delete();
+                    FirebaseStorage.getInstance("gs://chat-55084.appspot.com").getReference("DealerApplications").child(uid).delete();
                     FirebaseDatabase.getInstance().getReference("user").child(uid).removeValue();
                    FirebaseDatabase.getInstance().getReference("history").child(uid).removeValue();
                     FirebaseDatabase.getInstance().getReference("Profiles").child(uid).removeValue();
+                    FirebaseDatabase.getInstance().getReference("DealerProfiles").child(uid).removeValue();
                     FirebaseAuth.getInstance().getCurrentUser().delete()
                             .addOnCompleteListener(task -> {
                                 if (task.isSuccessful()) {

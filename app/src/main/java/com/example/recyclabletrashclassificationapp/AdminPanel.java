@@ -50,11 +50,9 @@ public class AdminPanel extends AppCompatActivity {
         fetchCounts();
 
         // Button click listeners
-    /*
 
-     findViewById(R.id.option_collector_profiles).setOnClickListener(v ->
-                startActivity(new Intent(this, CollectorProfilesActivity.class))
-        );*/
+
+
         findViewById(R.id.option_dealer_applications).setOnClickListener(v ->
                 startActivity(new Intent(this, DealerApplicationsView.class))
         );
@@ -63,6 +61,9 @@ public class AdminPanel extends AppCompatActivity {
         );
         findViewById(R.id.option_collector_applications).setOnClickListener(v ->
                 startActivity(new Intent(this, Administration.class))
+        );
+        findViewById(R.id.option_collector_profiles).setOnClickListener(v ->
+                startActivity(new Intent(this, CollectorProfilesActivity.class))
         );
     }
 

@@ -17,6 +17,9 @@
         android:theme="@style/Theme.RecyclableTrashClassificationApp"
         tools:targetApi="31">
         <activity
+            android:name=".CollectorProfilesActivity"
+            android:exported="false" />
+        <activity
             android:name=".DealerProfilesActivity"
             android:exported="false" />
         <activity
