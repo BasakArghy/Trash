@@ -36,11 +36,20 @@
         android:title="Chat"
         android:icon="@drawable/baseline_chat_24"
         app:showAsAction="always"
+        android:visible="false"
+        />
+    <item
+        android:id="@+id/map"
+        android:title="Dealer Locations"
+        android:icon="@drawable/baseline_maps_ugc_24"
+        app:showAsAction="always"
+        android:visible="false"
         />
     <item
         android:id="@+id/alogOut"
         android:title="Logout"
         android:icon="@drawable/logout_image"
-        app:showAsAction="always"/>
+        app:showAsAction="always"
+       />
 
 </menu>

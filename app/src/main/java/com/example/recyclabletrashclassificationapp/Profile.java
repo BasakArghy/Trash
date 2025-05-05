@@ -38,6 +38,7 @@ public class Profile extends AppCompatActivity {
     LinearLayout optional;
     FirebaseAuth firebaseAuth;
     FirebaseUser currentUser;
+    MenuItem dealer,chat,map,collect;
 
     private TextView nameValue, emailValue, applicationIdValue, birthdateValue, phoneValue, addressValue, nidValue, experienceValue,addressname;
     private LinearLayout optionalSection;
@@ -197,8 +198,12 @@ public class Profile extends AppCompatActivity {
         Menu menu = navigationView.getMenu();
 
 // Find the menu item you want to show/hide
-        MenuItem specialItem = menu.findItem(R.id.admin); // Replace with your actual menu item ID
+        MenuItem specialItem = menu.findItem(R.id.admin);// Replace with your actual menu item ID
 
+        dealer= menu.findItem(R.id.dealer);
+        collect= menu.findItem(R.id.apply);
+        chat=menu.findItem(R.id.chat);
+        map=menu.findItem(R.id.map);
 
 // Set default selected item to Home
         bottomNavigationView.setSelectedItemId(R.id.nav_profile);
@@ -240,9 +245,20 @@ public class Profile extends AppCompatActivity {
 
                         String userEmail = user.getUserEmail();
 
+
                         if(userEmail.equals("admin@gmail.com")){
                             specialItem.setVisible(true);
+                            dealer.setVisible(false);
+                            collect.setVisible(false);
 
+                        }
+                        else if(user.getUserProfile().equals("2")){
+                            chat.setVisible(true);
+                            map.setVisible(true);
+                        }
+                        else if(user.getUserProfile().equals("4")){
+                            chat.setVisible(true);
+                            map.setVisible(true);
                         }
 
 
@@ -285,6 +301,11 @@ public class Profile extends AppCompatActivity {
                 else if (item.getItemId()==R.id.chat) {
 
                     Intent idealer = new Intent(Profile.this,ChatActivity.class);
+                    startActivity(idealer);
+                }
+                else if (item.getItemId()==R.id.map) {
+
+                    Intent idealer = new Intent(Profile.this,MapView.class);
                     startActivity(idealer);
                 }
                 else if(item.getItemId()==R.id.alogOut) {

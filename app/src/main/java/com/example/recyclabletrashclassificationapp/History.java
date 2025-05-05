@@ -36,6 +36,7 @@ public class History extends AppCompatActivity {
     private String userId;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle drawerToggle;
+    MenuItem dealer,chat,map,collect;
     private androidx.appcompat.widget.Toolbar toolbar;
 
     @Override
@@ -69,6 +70,11 @@ public class History extends AppCompatActivity {
 
 // Find the menu item you want to show/hide
         MenuItem specialItem = menu.findItem(R.id.admin); // Replace with your actual menu item ID
+
+         dealer= menu.findItem(R.id.dealer);
+        collect= menu.findItem(R.id.apply);
+        chat=menu.findItem(R.id.chat);
+        map=menu.findItem(R.id.map);
 
 
 
@@ -122,7 +128,17 @@ public class History extends AppCompatActivity {
 
                         if(userEmail.equals("admin@gmail.com")){
                             specialItem.setVisible(true);
+                            dealer.setVisible(false);
+                            collect.setVisible(false);
 
+                        }
+                        else if(user.getUserProfile().equals("2")){
+                            chat.setVisible(true);
+                            map.setVisible(true);
+                        }
+                        else if(user.getUserProfile().equals("4")){
+                            chat.setVisible(true);
+                            map.setVisible(true);
                         }
 
 
@@ -165,6 +181,11 @@ public class History extends AppCompatActivity {
                 else if (item.getItemId()==R.id.dealer) {
 
                     Intent idealer = new Intent(History.this,ApplyAsDealer.class);
+                    startActivity(idealer);
+                }
+                else if (item.getItemId()==R.id.map) {
+
+                    Intent idealer = new Intent(History.this,MapView.class);
                     startActivity(idealer);
                 }
                 else if(item.getItemId()==R.id.alogOut) {

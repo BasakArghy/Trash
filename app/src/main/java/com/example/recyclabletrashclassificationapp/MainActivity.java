@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     TextView result;
     ImageView imageView;
     Button  confidence,gallery;
+    MenuItem dealer,chat,map,collect;
     ImageButton picture;
     String ss= "";
 
@@ -104,6 +105,11 @@ public class MainActivity extends AppCompatActivity {
 // Find the menu item you want to show/hide
         MenuItem specialItem = menu.findItem(R.id.admin); // Replace with your actual menu item ID
 
+        dealer= menu.findItem(R.id.dealer);
+        collect= menu.findItem(R.id.apply);
+        chat=menu.findItem(R.id.chat);
+        map=menu.findItem(R.id.map);
+
 
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -118,9 +124,20 @@ public class MainActivity extends AppCompatActivity {
 
                         String userEmail = user.getUserEmail();
 
+
                         if(userEmail.equals("admin@gmail.com")){
                             specialItem.setVisible(true);
+                            dealer.setVisible(false);
+                            collect.setVisible(false);
 
+                        }
+                        else if(user.getUserProfile().equals("2")){
+                            chat.setVisible(true);
+                            map.setVisible(true);
+                        }
+                        else if(user.getUserProfile().equals("4")){
+                            chat.setVisible(true);
+                            map.setVisible(true);
                         }
 
 
@@ -212,6 +229,11 @@ public class MainActivity extends AppCompatActivity {
                 else if (item.getItemId()==R.id.chat) {
 
                     Intent idealer = new Intent(MainActivity.this,ChatActivity.class);
+                    startActivity(idealer);
+                }
+                else if (item.getItemId()==R.id.map) {
+
+                    Intent idealer = new Intent(MainActivity.this,MapView.class);
                     startActivity(idealer);
                 }
                 else if(item.getItemId()==R.id.alogOut) {
