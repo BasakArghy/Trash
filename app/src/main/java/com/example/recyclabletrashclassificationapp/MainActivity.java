@@ -191,11 +191,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent iabout = new Intent(MainActivity.this, Reclycle_Process.class);
                     startActivity(iabout);
                 }
-                else if (item.getItemId()==R.id.History) {
 
-                    Intent ihistory = new Intent(MainActivity.this,History.class);
-                    startActivity(ihistory);
-                }
                 else if (item.getItemId()==R.id.dealer) {
 
                     Intent idealer = new Intent(MainActivity.this,ApplyAsDealer.class);
@@ -212,6 +208,11 @@ public class MainActivity extends AppCompatActivity {
                 else if (item.getItemId()==R.id.apply){
                     Intent isetti = new Intent(MainActivity.this,ApplyForPermit.class);
                     startActivity(isetti);
+                }
+                else if (item.getItemId()==R.id.chat) {
+
+                    Intent idealer = new Intent(MainActivity.this,ChatActivity.class);
+                    startActivity(idealer);
                 }
                 else if(item.getItemId()==R.id.alogOut) {
                     FirebaseAuth.getInstance().signOut();

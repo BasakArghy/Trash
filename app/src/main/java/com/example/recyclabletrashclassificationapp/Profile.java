@@ -264,11 +264,7 @@ public class Profile extends AppCompatActivity {
                     Intent iabout = new Intent(Profile.this, Reclycle_Process.class);
                     startActivity(iabout);
                 }
-                else if (item.getItemId()==R.id.History) {
 
-                    Intent iabout = new Intent(Profile.this,History.class);
-                    startActivity(iabout);
-                }
                 else if (item.getItemId()==R.id.Settings){
                     Intent isetti = new Intent(Profile.this,Settings.class);
                     startActivity(isetti);
@@ -284,6 +280,11 @@ public class Profile extends AppCompatActivity {
                 else if (item.getItemId()==R.id.dealer) {
 
                     Intent idealer = new Intent(Profile.this,ApplyAsDealer.class);
+                    startActivity(idealer);
+                }
+                else if (item.getItemId()==R.id.chat) {
+
+                    Intent idealer = new Intent(Profile.this,ChatActivity.class);
                     startActivity(idealer);
                 }
                 else if(item.getItemId()==R.id.alogOut) {

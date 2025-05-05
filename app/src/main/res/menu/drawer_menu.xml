@@ -12,11 +12,7 @@
         android:icon="@drawable/baseline_settings_24"
         android:title="Settings"
         app:showAsAction="always"/>
-    <item
-        android:id="@+id/History"
-        android:icon="@drawable/baseline_history_24"
-        android:title="History"
-        app:showAsAction="always"/>
+
     <item
         android:id="@+id/admin"
         android:title="Administration"
@@ -33,6 +29,12 @@
         android:id="@+id/dealer"
         android:title="Apply as Dealer"
         android:icon="@drawable/baseline_shop_24"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/chat"
+        android:title="Chat"
+        android:icon="@drawable/baseline_chat_24"
         app:showAsAction="always"
         />
     <item

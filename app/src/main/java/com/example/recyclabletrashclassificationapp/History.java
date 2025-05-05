@@ -144,10 +144,7 @@ public class History extends AppCompatActivity {
                     Intent iabout = new Intent(History.this, Reclycle_Process.class);
                     startActivity(iabout);
                 }
-                else if (item.getItemId()==R.id.History) {
 
-
-                }
                 else if (item.getItemId()==R.id.Settings){
                     Intent isetti = new Intent(History.this,Settings.class);
                     startActivity(isetti);
@@ -159,6 +156,11 @@ public class History extends AppCompatActivity {
                 else if (item.getItemId()==R.id.apply){
                     Intent isetti = new Intent(History.this,ApplyForPermit.class);
                     startActivity(isetti);
+                }
+                else if (item.getItemId()==R.id.chat) {
+
+                    Intent idealer = new Intent(History.this,ChatActivity.class);
+                    startActivity(idealer);
                 }
                 else if (item.getItemId()==R.id.dealer) {
 

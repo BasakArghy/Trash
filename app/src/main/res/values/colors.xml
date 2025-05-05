@@ -9,7 +9,8 @@
     <color name="header">#A3D0F3</color>
     <color name="headerText">#0B1720</color>
     <color name="sada">#FFFFFFFF</color>
-    <color name="historyItem">#E6EAF6</color>
+    <color name="historyItem">#6083EF</color>
+    <color name="history">#E6EAF6</color>
     <color name="formBack">#A3D0F3</color>
 
 </resources>

@@ -146,13 +146,18 @@
                         android:textColor="#555555"
                         android:layout_marginTop="16dp"
                         android:layout_marginBottom="16dp"/>
-                    <fragment
-
+                    <com.example.recyclabletrashclassificationapp.MapTouchListener
+                        android:id="@+id/map_touch_frame"
                         android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:id="@+id/map"
-                        android:name="com.google.android.gms.maps.SupportMapFragment"
-                        />
+                        android:layout_height="200dp">
+
+                        <fragment
+                            android:id="@+id/map"
+                            android:name="com.google.android.gms.maps.SupportMapFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+
+                    </com.example.recyclabletrashclassificationapp.MapTouchListener>
                     <TextView
                         android:id="@+id/lat"
                         android:layout_width="wrap_content"
