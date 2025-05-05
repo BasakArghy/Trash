@@ -1,6 +1,7 @@
 package com.example.recyclabletrashclassificationapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -41,6 +42,13 @@ public class DealerChatAdapter extends RecyclerView.Adapter<DealerChatAdapter.Vi
                 .load(dealer.getPhotoUrl())
                 .placeholder(R.drawable.baseline_person_24)
                 .into(holder.imgProfile);
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, MessageActivity.class);
+            intent.putExtra("receiverId", dealer.getUid());
+            intent.putExtra("receiverName", dealer.getName());// or dealer.getId()
+            context.startActivity(intent);
+        });
+
     }
 
     @Override
