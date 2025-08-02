@@ -59,5 +59,12 @@ dependencies {
     implementation("com.google.android.gms:play-services-maps:18.2.0")
 
 
+    //payment
+    implementation("com.stripe:stripe-java:22.2.0")
+    implementation("com.stripe:stripe-android:17.2.0")
+    implementation("com.android.volley:volley:1.2.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
+
+
 
 }

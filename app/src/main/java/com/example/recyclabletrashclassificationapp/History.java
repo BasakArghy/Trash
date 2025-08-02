@@ -34,6 +34,7 @@ public class History extends AppCompatActivity {
     private List<HistoryModel> historyList;
     private DatabaseReference historyRef;
     private String userId;
+
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle drawerToggle;
     MenuItem dealer,chat,map,collect;
@@ -135,10 +136,14 @@ public class History extends AppCompatActivity {
                         else if(user.getUserProfile().equals("2")){
                             chat.setVisible(true);
                             map.setVisible(true);
+                            dealer.setVisible(false);
+                            collect.setVisible(false);
                         }
                         else if(user.getUserProfile().equals("5")){
                             chat.setVisible(true);
                             map.setVisible(true);
+                            dealer.setVisible(false);
+                            collect.setVisible(false);
                         }
 
 

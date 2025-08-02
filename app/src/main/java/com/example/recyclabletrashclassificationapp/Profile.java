@@ -255,10 +255,14 @@ public class Profile extends AppCompatActivity {
                         else if(user.getUserProfile().equals("2")){
                             chat.setVisible(true);
                             map.setVisible(true);
+                            dealer.setVisible(false);
+                            collect.setVisible(false);
                         }
                         else if(user.getUserProfile().equals("5")){
                             chat.setVisible(true);
                             map.setVisible(true);
+                            dealer.setVisible(false);
+                            collect.setVisible(false);
                         }
 
 
