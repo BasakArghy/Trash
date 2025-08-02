@@ -33,7 +33,7 @@ public class ReadMore extends AppCompatActivity {
     private StepAdapter stepAdapter;
     private List<StepItemModel> stepList;*/
     private DatabaseReference databaseSteps;
-    private TextView recyclingDescriptionTextView;
+    private TextView recyclingDescriptionTextView,title;
     private ImageView recyclingImageView;
     private FirebaseFirestore db;
 
@@ -45,8 +45,12 @@ public class ReadMore extends AppCompatActivity {
 
         recyclingImageView=findViewById(R.id.recycling_image);
         recyclingDescriptionTextView=findViewById(R.id.recycling_process);
+        title = findViewById(R.id.title);
 
         int itemIndex =getIntent().getIntExtra("item_index", -1);  // Default value -1
+        String titlename = getIntent().getStringExtra("item_name");
+      
+        title.setText(titlename);
 
 
 

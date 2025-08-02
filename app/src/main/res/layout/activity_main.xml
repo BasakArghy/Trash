@@ -63,7 +63,7 @@
                 android:id="@+id/confidencesText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Confidences"
+                android:text="Learn More"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:textColor="@color/sada"

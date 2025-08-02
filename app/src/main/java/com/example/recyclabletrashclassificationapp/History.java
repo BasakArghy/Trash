@@ -136,7 +136,7 @@ public class History extends AppCompatActivity {
                             chat.setVisible(true);
                             map.setVisible(true);
                         }
-                        else if(user.getUserProfile().equals("4")){
+                        else if(user.getUserProfile().equals("5")){
                             chat.setVisible(true);
                             map.setVisible(true);
                         }

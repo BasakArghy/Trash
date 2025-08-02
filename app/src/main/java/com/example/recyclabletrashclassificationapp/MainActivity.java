@@ -43,13 +43,16 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity {
 
     public static Object instance;
+    private List<String> itemList;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle drawerToggle;
     TextView result;
@@ -58,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     MenuItem dealer,chat,map,collect;
     ImageButton picture;
     String ss= "";
+    int position=0;
 
     String ans ="";
     int imageSize = 224;
@@ -135,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
                             chat.setVisible(true);
                             map.setVisible(true);
                         }
-                        else if(user.getUserProfile().equals("4")){
+                        else if(user.getUserProfile().equals("5")){
                             chat.setVisible(true);
                             map.setVisible(true);
                         }
@@ -169,7 +173,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+// List of items (Paper, Plastics, etc.)
+        itemList = Arrays.asList("Paper", "Plastics", "Glass", "Metal", "Electronics", "Clothes", "Shoe");
 
 
 
@@ -177,9 +182,13 @@ public class MainActivity extends AppCompatActivity {
         confidence.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent confi = new Intent(MainActivity.this, Confidences.class);
+                /*Intent confi = new Intent(MainActivity.this, Confidences.class);
                 confi.putExtra("con",ss);
-                startActivity(confi);
+                startActivity(confi);*/
+                Intent intent = new Intent(MainActivity.this, ReadMore.class);
+                intent.putExtra("item_index", position);
+                intent.putExtra("item_name", itemList.get(position));// Pass the index
+                startActivity(intent);
             }
         });
 
@@ -326,11 +335,54 @@ public class MainActivity extends AppCompatActivity {
                     maxPos = i;
                 }
             }
-            String[] classes = {"Plastic Bottles","Brown Glasses","Cans","CardBoard","Clothes","Green Glasses","Leather Products","Leather Shoe","Newspaper","Polythene","White Glass","Non Recyclable"};
-           if(confidences[maxPos]>.9)
-           { result.setText(classes[maxPos]);}
+            //String[] classes = {"glass_bottle","glass_jar","plastic_bottle","plastic_bucket","plastic_container","plastic_jugs_mug","newspaper","paper","shopping_bag","cardboard","Clothes","Can","NonRecyclable"};
+            //String[] classes = {"glass","plastic","paper","metal","Clothes","NonRecyclable"};
+            String[] classes = {"glass_bottle","glass_jar","plastic_bottle","plastic_bucket","plastic_container","plastic_jugs","plastic_mugs","newspaper","paper","shopping_bag","cardboard","Clothes","Can","NonRecyclable"};
+            //String[] classes = {"Plastic Bottles","Brown Glasses","Cans","CardBoard","Clothes","Green Glasses","Leather Products","Leather Shoe","Newspaper","Polythene","White Glass","Non Recyclable"};
+           String detected ="";
+            if(confidences[maxPos]>.9)
+           {
+               if(maxPos<(classes.length-1)){
+                   result.setText("Recyclable");
+               }
+               //result.setText(classes[maxPos]);
+               else{
+                   result.setText("Non Recyclable");
+               }
+              switch (maxPos){
+                  case 0:
+                  case 1:
+                      position=2;
+                      break;
+                  case 2:
+                  case 3:
+                  case 4:
+                  case 5:
+                  case 6:
+                      position=1;
+                      break;
+                  case 7:
+                  case 8:
+                  case 9:
+                  case 10:
+                      position=0;
+                      break;
+                  case 11:
+                      position=5;
+                      break;
+                  case 12:
+                      position=3;
+                      break;
+                  case 13:
+
+                      break;
+
+              }
+           detected = classes[maxPos];
+           }
            else{
                result.setText("Non Recyclable");
+               detected ="Non Recyclable";
            }
 
             ans = classes[maxPos];
@@ -339,7 +391,7 @@ public class MainActivity extends AppCompatActivity {
             for(int i = 0; i < classes.length; i++){
                 s += String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100);
             }
-            ss=s;
+            ss=detected;
 
 
             // Convert Bitmap to ByteArray
@@ -348,7 +400,7 @@ public class MainActivity extends AppCompatActivity {
             byte[] dataBytes = baos.toByteArray();
 
             // Upload to Firebase Storage
-            uploadImageToFirebase(dataBytes,classes[maxPos]);
+            uploadImageToFirebase(dataBytes,detected);
 
 
             // Releases model resources if no longer used.
