@@ -52,9 +52,35 @@ public class ReadMore extends AppCompatActivity {
       
         title.setText(titlename);
 
+       // Toast.makeText(this, String.valueOf(itemIndex), Toast.LENGTH_SHORT).show();
+
+if(itemIndex!= -1){
+
+    recyclingDescriptionTextView = findViewById(R.id.recycling_process);
+    recyclingImageView = findViewById(R.id.recycling_image);
+    databaseSteps = FirebaseDatabase.getInstance().getReference("recycling_processes");
+
+// Get the recycling process data from Firestore using the model class
+    databaseSteps.child(String.valueOf(itemIndex))
+            .get()
+            .addOnSuccessListener(dataSnapshot -> {
+                if (dataSnapshot.exists()) {
+                    // Map Firestore document to RecycleProcessModel
+                    RecycleProcessModel process = dataSnapshot.getValue(RecycleProcessModel.class);
+                    if (process != null) {
+                        //Toast.makeText(this, process.getItemName(), Toast.LENGTH_SHORT).show();
+                        recyclingDescriptionTextView.setText(process.getItemDescription());
+                        Glide.with(this).load(process.getImageUrl()).into(recyclingImageView);
+                    }
+                }
+            })
+            .addOnFailureListener(e -> {
+                // Log error or notify user
+                Log.e("Firestore", "Failed to load recycling process data", e);
+            });
 
 
-
+}
 
 
  /*
@@ -82,30 +108,6 @@ public class ReadMore extends AppCompatActivity {
         RecycleProcessModel Paper5 =new RecycleProcessModel("Shoe","📥 1. Collection\n Old or unwanted shoes are collected through recycling bins, retail drop-offs, or donation drives.\n\n👀 2. Inspection and Sorting\n Shoes are inspected and sorted based on material (leather, rubber, fabric) and condition (wearable or not).\n\n♻️ 3. Reuse\n Gently used shoes are cleaned and donated or resold through second-hand programs.\n\n🔧 4. Dismantling\n Non-reusable shoes are manually or mechanically separated into components like soles, uppers, and foam.\n\n🔄 5. Material Separation\n Materials such as rubber, leather, textiles, and plastics are separated for recycling.\n\n🔥 6. Processing and Recycling\n Recovered materials are ground, melted, or processed into raw forms (like rubber granules or fibers).\n\n✅ 7. New Product Manufacturing\n Recycled shoe materials are used to make flooring, athletic surfaces, new footwear, or insulation materials.","https://firebasestorage.googleapis.com/v0/b/chat-55084.appspot.com/o/recycling_processes%2FShoe.png?alt=media&token=638261ad-b96e-4b43-ad0c-be9fd7d9f7c9");
         databaseSteps.child("6").setValue(Paper5);
 */
-
-        recyclingDescriptionTextView = findViewById(R.id.recycling_process);
-        recyclingImageView = findViewById(R.id.recycling_image);
-        databaseSteps = FirebaseDatabase.getInstance().getReference("recycling_processes");
-
-// Get the recycling process data from Firestore using the model class
-        databaseSteps.child(String.valueOf(itemIndex))
-                .get()
-                .addOnSuccessListener(dataSnapshot -> {
-                    if (dataSnapshot.exists()) {
-                        // Map Firestore document to RecycleProcessModel
-                        RecycleProcessModel process = dataSnapshot.getValue(RecycleProcessModel.class);
-                        if (process != null) {
-                            //Toast.makeText(this, process.getItemName(), Toast.LENGTH_SHORT).show();
-                            recyclingDescriptionTextView.setText(process.getItemDescription());
-                            Glide.with(this).load(process.getImageUrl()).into(recyclingImageView);
-                        }
-                    }
-                })
-                .addOnFailureListener(e -> {
-                    // Log error or notify user
-                    Log.e("Firestore", "Failed to load recycling process data", e);
-                });
-
 
         Toolbar toolbar = findViewById(R.id.tb);
 

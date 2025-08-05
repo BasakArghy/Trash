@@ -7,4 +7,10 @@
         android:icon="@drawable/baseline_payments_24"
         app:showAsAction="always"
         android:visible="false"/>
+    <item
+        android:id="@+id/view_transactions"
+        android:title="View Transactions"
+        android:icon="@drawable/transactions"
+        app:showAsAction="always"
+        android:visible="false"/>
 </menu>

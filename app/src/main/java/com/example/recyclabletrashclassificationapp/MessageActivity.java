@@ -8,6 +8,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -56,6 +57,7 @@ public class MessageActivity extends AppCompatActivity {
     private String receiverId, receiverName;
     private String senderId;
     private MenuItem makePaymentItem;
+    private MenuItem showPaymentItem;
     int paymentval=0;
 
     String PublishableKey ="pk_test_51RhR1uQvKXb2BwZnT0S2L3eJ66v4KnJ2RbUUOYzNcc7VXq8jnQ7GCmj2uKPggEywUY02RTKLU4Iv4e57bM6nqzfT00AhmrRBkP";
@@ -149,6 +151,7 @@ public class MessageActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.chatopt, menu);
         makePaymentItem = menu.findItem(R.id.make_payment);
+        showPaymentItem = menu.findItem(R.id.view_transactions);
         //payment visibility for dealer only
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
@@ -159,9 +162,13 @@ public class MessageActivity extends AppCompatActivity {
                 if (user != null) {
                     if(user.getUserProfile().equals("5")){
                         makePaymentItem.setVisible(true);
+                        showPaymentItem.setVisible(true);
+                    } else if (user.getUserProfile().equals("2")) {
+                        showPaymentItem.setVisible(true);
                     }
                 }
-            }
+                }
+
         });
 
         return true;
@@ -174,6 +181,10 @@ public class MessageActivity extends AppCompatActivity {
         if (id == R.id.make_payment) {
             //paymentFlow();
             showAmountDialog();
+            return true;
+        }
+        else if (id == R.id.view_transactions) {
+            openTransactionViewer(); // 👈 create this method next
             return true;
         }
 
@@ -347,7 +358,7 @@ private void paymentFlow() {
                 .show();
     }
     private void savePaymentToFirebase() {
-        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("Payments");
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("Payments").child(generateChatId(senderId,receiverId));
 
         String paymentId = dbRef.push().getKey(); // Unique ID
         long amount = paymentval; // 💵 Use your actual amount in cents (e.g., $100 = 10000)
@@ -364,6 +375,13 @@ private void paymentFlow() {
         dbRef.child(paymentId).setValue(transaction)
                 .addOnSuccessListener(aVoid -> Toast.makeText(this, "Stored in DB", Toast.LENGTH_SHORT).show())
                 .addOnFailureListener(e -> Toast.makeText(this, "DB Error: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+    }
+
+    private void openTransactionViewer() {
+        Intent intent = new Intent(this, TransactionHistoryActivity.class);
+        intent.putExtra("senderId", senderId);
+        intent.putExtra("receiverId", receiverId);
+        startActivity(intent);
     }
 
 

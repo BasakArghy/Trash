@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
         itemList = Arrays.asList("Paper", "Plastics", "Glass", "Metal", "Electronics", "Clothes", "Shoe");
 
 
-
+confidence.setEnabled(false);
 
         confidence.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -191,7 +191,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(confi);*/
                 Intent intent = new Intent(MainActivity.this, ReadMore.class);
                 intent.putExtra("item_index", position);
-                intent.putExtra("item_name", itemList.get(position));// Pass the index
+               // intent.putExtra("item_name", itemList.get(position));// Pass the index
+                intent.putExtra("item_name", ss);// Pass the index
                 startActivity(intent);
             }
         });
@@ -216,13 +217,13 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if(item.getItemId()==R.id.about)
+               /* if(item.getItemId()==R.id.about)
                 {
                     Intent iabout = new Intent(MainActivity.this, Reclycle_Process.class);
                     startActivity(iabout);
-                }
+                }*/
 
-                else if (item.getItemId()==R.id.dealer) {
+              if (item.getItemId()==R.id.dealer) {
 
                     Intent idealer = new Intent(MainActivity.this,ApplyAsDealer.class);
                     startActivity(idealer);
@@ -378,7 +379,7 @@ public class MainActivity extends AppCompatActivity {
                       position=3;
                       break;
                   case 13:
-
+position = -1;
                       break;
 
               }
@@ -397,7 +398,7 @@ public class MainActivity extends AppCompatActivity {
             }
             ss=detected;
 
-
+confidence.setEnabled(true);
             // Convert Bitmap to ByteArray
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             image.compress(Bitmap.CompressFormat.JPEG, 100, baos);

@@ -279,13 +279,13 @@ public class Profile extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if(item.getItemId()==R.id.about)
+              /*  if(item.getItemId()==R.id.about)
                 {
                     Intent iabout = new Intent(Profile.this, Reclycle_Process.class);
                     startActivity(iabout);
                 }
-
-                else if (item.getItemId()==R.id.Settings){
+*/
+              if (item.getItemId()==R.id.Settings){
                     Intent isetti = new Intent(Profile.this,Settings.class);
                     startActivity(isetti);
                 }

@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
+<!--    <item
         android:id="@+id/about"
         android:title="Recycle Process"
         android:icon="@drawable/baseline_info_24"
-        app:showAsAction="always"/>
+        app:showAsAction="always"/>-->
     <item
         android:id="@+id/Settings"
         android:icon="@drawable/baseline_settings_24"
